@@ -104,6 +104,3 @@ class Game:
 
         # Print the winning game board
         self.show_board()
-
-
-game = Game()
