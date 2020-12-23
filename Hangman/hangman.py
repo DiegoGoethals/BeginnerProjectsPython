@@ -24,13 +24,19 @@ class Game:
         # Obviously creates an empty winner slot
         self.winner = None
 
+        self.running = True
+        self.run_game()
+
     # Enables the players to guess a letter
-    def guess(self, letter):
+    def guess(self):
+        letter = input("Please guess a letter: ")
         if letter in self.selected:
+            print("This letter was already chosen before, please try another one")
             return False
         self.selected.append(letter)
         if letter not in self.word:
             self.mistakes_left -= 1
+            print("This letter is not in the word. You have ({}) wrong tries left.".format(self.mistakes_left))
         else:
             matches = []
             for match in re.finditer(letter, self.word):
@@ -43,5 +49,22 @@ class Game:
     def check_win(self):
         if self.mistakes_left == 0:
             self.winner = "Hanger"
+            print("Congratulations hanger, you won")
+            self.running = False
         if self.progress == self.word:
             self.winner = "Guesser"
+            print("Congratulations guesser, you won")
+            self.running = False
+
+    def show_progress(self):
+        print(self.progress)
+
+    def show_selected(self):
+        print("You've already guessed these letters: ({})".format(self.selected))
+
+    def run_game(self):
+        # While the game is not over
+        while self.running:
+            self.show_progress()
+            self.show_selected()
+            self.guess()
