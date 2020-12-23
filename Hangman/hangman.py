@@ -44,6 +44,7 @@ class Game:
             for match in matches:
                 self.progress = self.progress[:match] + letter + self.progress[match + 1:]
         self.check_win()
+        self.show_progress()
 
     # Checks if the game is done and if so who won, the hanger or the guessers
     def check_win(self):
@@ -62,9 +63,16 @@ class Game:
     def show_selected(self):
         print("You've already guessed these letters: ({})".format(self.selected))
 
+    def play_again(self):
+        answer = input("Would you like to play again? y/n: ")
+        if answer == "y":
+            word = input("What word would you like the others to guess?")
+            self.__init__(word)
+
     def run_game(self):
+        self.show_progress()
         # While the game is not over
         while self.running:
-            self.show_progress()
             self.show_selected()
             self.guess()
+        self.play_again()

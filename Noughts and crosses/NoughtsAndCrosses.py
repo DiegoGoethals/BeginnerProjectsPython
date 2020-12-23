@@ -91,6 +91,11 @@ class Game:
             # Stop the game
             self.running = False
 
+    def play_again(self):
+        answer = input("Would you like to play again? y/n: ")
+        if answer == "y":
+            self.__init__()
+
     def run_game(self):
         # While the game is not over
         while self.running:
@@ -104,3 +109,7 @@ class Game:
 
         # Print the winning game board
         self.show_board()
+
+        self.play_again()
+
+game = Game()
