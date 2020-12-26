@@ -93,7 +93,7 @@ class Game:
 
     def play_again(self):
         answer = input("Would you like to play again? y/n: ")
-        if answer == "y":
+        if answer == "y" or answer == "":
             self.__init__()
 
     def run_game(self):
@@ -111,5 +111,3 @@ class Game:
         self.show_board()
 
         self.play_again()
-
-game = Game()

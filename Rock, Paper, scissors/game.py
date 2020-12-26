@@ -1,5 +1,6 @@
 import random
 
+
 class Game():
 
     def __init__(self, moves=3):
@@ -45,7 +46,7 @@ class Game():
 
     def play_again(self):
         answer = input("Would you like to play again? y/n: ")
-        if answer == "y":
+        if answer == "y" or answer == "":
             self.__init__()
 
     def run(self):

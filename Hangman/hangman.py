@@ -5,8 +5,9 @@ import re
 
 class Game:
 
-    def __init__(self, word):
+    def __init__(self):
         # Sets word chosen by players as word to guess
+        word = input("Choose word to guess please: ")
         self.word = word
 
         # Shows how many letters have to be guessed by players and are already guessed
@@ -65,9 +66,8 @@ class Game:
 
     def play_again(self):
         answer = input("Would you like to play again? y/n: ")
-        if answer == "y":
-            word = input("What word would you like the others to guess?")
-            self.__init__(word)
+        if answer == "y" or answer == "":
+            self.__init__()
 
     def run_game(self):
         self.show_progress()
