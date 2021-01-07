@@ -76,3 +76,6 @@ class Game:
             self.show_selected()
             self.guess()
         self.play_again()
+
+
+game = Game()

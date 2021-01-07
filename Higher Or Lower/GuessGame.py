@@ -39,3 +39,6 @@ class Game:
         while self.running:
             self.guess()
         self.play_again()
+
+
+game = Game()

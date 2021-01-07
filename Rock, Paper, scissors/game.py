@@ -55,3 +55,6 @@ class Game():
             self.move()
             self.show_score()
         self.play_again()
+
+
+game = Game()

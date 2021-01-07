@@ -111,3 +111,6 @@ class Game:
         self.show_board()
 
         self.play_again()
+
+
+game = Game()
